@@ -1,0 +1,114 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;
+    grid-gap: 40px;
+    padding: 10px 0;
+}
+  
+.text-title {
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.text-description {
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 300;
+    color: white;
+}
+
+
+.characters {
+    grid-column: 2 / span 12;
+    display: grid;
+    grid-template-columns: repeat(12, minmax(auto, 60px));
+    grid-gap: 40px;
+}
+
+.character-container {
+    grid-column-end: span 4;
+    display: flex;
+    flex-direction: column;
+    background-color: #39393b;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.character-container:hover {
+    transform: translateY(-7px);
+}
+
+.character-container-img {
+    width: 100%;
+    padding-top: 56.25%;
+    overflow: hidden;
+    position: relative;
+    background-image: url('../image/bg-character.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+  
+.character-container-img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.character-info-content {
+    padding: 20px;
+}
+
+.character-info-title {
+    margin-bottom: 20px;
+}
+
+.character-info-subcontent {
+    display: flex;
+    align-self: end;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-gender {
+    margin-right: 80%;
+    margin-bottom: 20px;
+    padding: 5px 20px;
+    background-color: #f44336;
+    border-radius: 20px;
+  }
+  
+@media only screen and (max-width: 1000px) {
+.character-container {
+    grid-column-end: span 6;
+}
+}
+
+@media only screen and (max-width: 700px) {
+    main {
+        grid-gap: 20px;
+    }
+    .character-container {
+        grid-column-end: span 12;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    main {
+        grid-template-columns: 10px repeat(6, 1fr) 10px;
+        grid-gap: 10px;
+    }
+    .characters {
+        grid-column: 2 / span 6;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 20px;
+    }
+    .character-container {
+        grid-column-end: span 6;
+    }
+}

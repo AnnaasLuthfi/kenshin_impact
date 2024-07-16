@@ -1,0 +1,121 @@
+.content-gallery{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 300px;
+    grid-auto-flow: dense;
+    gap: 20px;
+}
+
+.content-gallery .content-box{
+    position: relative;
+    background-color: white;
+    overflow: hidden;
+}
+
+.content-gallery .content-box:nth-child(7n+1){
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.content-gallery .content-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.content-gallery .content-box iframe{
+    width: 100%;
+    height: 100%;
+}
+
+.content-gallery .content-box:hover img{
+    transform: scale(1.3);
+}
+
+.content-gallery .content-box .overlay{
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.content-gallery .content-box:hover .overlay{
+    top:20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    opacity: 1;
+}
+
+.content-gallery .content-box .details{
+    text-align: center;
+}
+
+.content-gallery .content-box .details .title{
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+    top: -5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.content-gallery .content-box .details .visit-link{
+    font-size: 14px;
+    font-weight: 300;
+    position: relative;
+    bottom: -5px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.content-gallery .content-box:hover .details .title{
+    top: 0px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s 0.2s ease;
+}
+
+.content-gallery .content-box:hover .details .visit-link{
+    bottom: 0px;
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s 0.2s ease;
+}
+
+.content-gallery .content-box .details .title a,
+.content-gallery .content-box .details .visit-link a{
+    color: black;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media(max-width:768px){
+    .content-gallery{
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+        margin-left: -10px;
+    }
+    .content-gallery .content-box:nth-child(7n+1){
+        grid-column: unset;
+        grid-row: unset;
+    }
+
+
+}
